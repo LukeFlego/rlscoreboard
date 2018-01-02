@@ -3,6 +3,7 @@
   font-family: 'Exo', sans-serif;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  color: #fff;
 }
 .colour-palette {
   font-size: 0;
@@ -294,9 +295,53 @@ table:hover tfoot td {
 table:hover tfoot td:hover {
   opacity: 1;
 }
-.options {
+.options * {
   text-align: center;
+  color: #000;
 }
 .options td {
   padding: 10px;
+}
+button[class],
+button[id] {
+  border-radius: 10%;
+  border: 0;
+  background: #000;
+  color: #fff;
+  font-weight: bold;
+  width: 1.5em;
+  height: 1.5em;
+}
+button[class]:hover,
+button[id]:hover,
+button[class]:focus,
+button[id]:focus {
+  background: #fff;
+  color: #000;
+  -webkit-box-shadow: inset 0 0 0 .1em #000;
+  box-shadow: inset 0 0 0 .1em #000;
+}
+#help {
+  padding: 1px 20px;
+  background: rgba(0, 0, 0, .8);
+  color: #fff;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+#help #close-help {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5em;
+}
+pre {
+  background: rgba(0, 0, 0, .3);
+  padding: 1em;
 }

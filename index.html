@@ -44,6 +44,9 @@
             <label for="reposition">Reposition</label>
             <input type="checkbox" id="reposition">
           </div>
+          <div>
+            <button title="Help" id="open-help">?</button>
+          </div>
         </td>
       </tr>
     </tfoot>
@@ -51,6 +54,31 @@
 
   <div class="colour-palette shadow" hidden></div>
 
+  <div id="help" style="display:none">
+    <header>
+      <h2>Rocket League Scoreboard</h2>
+      <h4>This webpage was made for RL casters to easily update their own scores.</h4>
+    </header>
+    <section>
+      <h3>How to use</h3>
+      <ul>
+        <li>Click top half of score to +1</li>
+        <li>Click bottom half of score to -1</li>
+        <li>Click on row to edit name, and also change the score colour</li>
+        <li>Press enter to add a new team/name</li>
+        <li>Leave the team/name blank and click off to remove it</li>
+      </ul>
+      <p>This is designed to work as a browser source in streaming software</p>
+      <h3>Useful CSS (transparent background)</h3>
+      <p><pre>body { background-color: transparent; margin: 0px auto; overflow: hidden; }</pre></p>
+
+      <p>I hope you can find it useful!</p>
+    </section>
+    <footer>
+      <p><a href="https://lukeflego.com/" target="_blank">By Luke Flego 2017</a></p>
+    </footer>
+    <button id="close-help">X</button>
+  </div>
 
   <table class="team-template" hidden>
     <tr class="team">
@@ -67,6 +95,7 @@
       </td>
     </tr>
   </table>
+
   <script src="script.js" type="text/javascript"></script>
 
 </body>

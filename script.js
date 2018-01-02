@@ -1,7 +1,9 @@
 var options = {
   perspective: true,
-  position: [50, 50]
+  position: [50, 50],
+  firstVisit: true
 }
+
 if (localStorage.getItem('RLSBOptions')) {
   options = JSON.parse(localStorage.getItem('RLSBOptions'));
 }
@@ -15,6 +17,11 @@ $('.hasPerspective #scoreboard').css({
   left: options.position[1]
 })
 
+if (options.firstVisit === null || options.firstVisit === true) {
+  options.firstVisit = false;
+  $('body #help').show();
+  setRLSBOptions();
+}
 
 // default colours
 var defaultColours = [1, 6];
@@ -128,6 +135,7 @@ $(document).mouseup(function () {
 function setRLSBOptions() {
   options.perspective = $('#perspective:checked').length == 1;
   options.position = [$('#scoreboard').css('top'), $('#scoreboard').css('left')];
+  options.firstVisit = false;
   localStorage.setItem('RLSBOptions', JSON.stringify(options));
 }
 
@@ -156,4 +164,17 @@ $('#perspective').change(function () {
 
 $('#reposition').change(function () {
   $('#reposition:checked').length == 1 ? $('body').addClass('repositioning') : $('.repositioning').removeClass('repositioning');
+});
+
+$('#open-help').on('click', function (e) {
+  e.stopPropagation();
+  $('#help').show();
+});
+$('#close-help').on('click', function () {
+  $('#help').hide();
+});
+$('body').on('click', function (e) {
+  if ($('#help').is(':visible') && !$(e.target).closest('#help').length) {
+    $('#help').hide();
+  }
 });
